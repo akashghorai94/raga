@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raga-Rhythm | Ancient Swara Sequencer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>RAGA-RHYTHM</h1>
+    <p>Ancient Indian Swara Sequencer & Interactive Sound Toy</p>
+  </header>
+
+  <main class="container">
+    
+    <!-- Controls Panel -->
+    <section class="controls">
+      <div class="control-group">
+        <label for="ragaSelect">Select Raga</label>
+        <select id="ragaSelect">
+          <option value="bhairav">Raga Bhairav (Morning)</option>
+          <option value="yaman">Raga Yaman (Evening)</option>
+          <option value="bhupali">Raga Bhupali (Pentatonic)</option>
+          <option value="malkauns">Raga Malkauns (Midnight)</option>
+          <option value="kafi">Raga Kafi (Spring/Late Night)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="tempoSlider">Tempo: <span id="tempoVal">120</span> BPM</label>
+        <input type="range" id="tempoSlider" min="60" max="220" value="120">
+      </div>
+
+      <div class="button-group">
+        <button id="playBtn" class="btn-primary">▶ Play Loop</button>
+        <button id="tanpuraBtn">🪕 Tanpura Drone</button>
+        <button id="presetBtn">✨ Load Demo Pattern</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+    </section>
+
+    <!-- Raga Info Panel -->
+    <section class="raga-info" id="ragaInfo">
+      Loading Raga specifications...
+    </section>
+
+    <!-- Sequencer Workspace -->
+    <section class="sequencer-outer">
+      <div class="sequencer-container" id="sequencerGrid">
+        <!-- Rows & cells generated dynamically via script.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Smart India Hackathon Entry | Powered by Web Audio API & GitHub Pages
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
