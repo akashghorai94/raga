@@ -1,0 +1,235 @@
+:root {
+  --bg-dark: #120b0e;
+  --panel-bg: #1e1318;
+  --accent-gold: #f39c12;
+  --accent-gold-glow: rgba(243, 156, 18, 0.4);
+  --accent-red: #e74c3c;
+  --accent-cyan: #1abc9c;
+  --text-light: #f5f0eb;
+  --text-muted: #a09299;
+  --border-color: #38242c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 10px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: var(--accent-gold);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  text-shadow: 0 0 10px rgba(243, 156, 18, 0.2);
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Controls Panel */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-group label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+select, button, input[type="range"] {
+  background: #2a1b22;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+select:hover, button:hover {
+  border-color: var(--accent-gold);
+}
+
+.btn-primary {
+  background: var(--accent-gold);
+  color: #120b0e;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #e67e22;
+}
+
+.btn-active {
+  background: var(--accent-red) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-red) !important;
+}
+
+/* Raga Info Card */
+.raga-info {
+  background: #25161c;
+  border-left: 4px solid var(--accent-gold);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Sequencer Scroll Layout */
+.sequencer-outer {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+}
+
+.sequencer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 760px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.swara-label {
+  width: 70px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  text-align: right;
+  padding-right: 12px;
+  flex-shrink: 0;
+}
+
+.grid-cells {
+  display: flex;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.cell {
+  flex: 1;
+  height: 38px;
+  background: #2a1a21;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.cell:hover {
+  border-color: var(--accent-gold);
+  background: #38232c;
+}
+
+.cell.active {
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px var(--accent-gold-glow);
+  border-color: var(--accent-gold);
+}
+
+.cell.disabled {
+  background: #150c10;
+  border-color: #1f1217;
+  cursor: not-allowed;
+  opacity: 0.25;
+}
+
+.cell.playing {
+  border-color: #ffffff;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.step-indicators-row {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.step-dot {
+  flex: 1;
+  height: 6px;
+  background: #2a1a21;
+  border-radius: 3px;
+  transition: background 0.1s ease;
+}
+
+.step-dot.active {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
